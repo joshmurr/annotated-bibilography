@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const PORT = process.env.PORT || 3001
 const knex = require('./knex/knex.js')
@@ -35,7 +36,6 @@ app.post('/new', (req, res) => {
   knex('papers')
     .insert({ ...req.body })
     .then((r) => {
-      console.log(r)
       res.redirect(303, '/')
     })
 })

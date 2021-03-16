@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "knex": "knex",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "migrate:staging": "knex migrate:latest --env staging"
   },
   "keywords": [],
   "author": "",

@@ -32,7 +32,7 @@ exports.seed = function (knex) {
     .then(function () {
       return knex("papers").insert(
         papers.map((entry, id) => ({
-          id,
+          //id,
           ...entry,
         }))
       );

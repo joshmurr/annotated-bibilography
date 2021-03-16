@@ -5,3 +5,5 @@ package-lock.json
 .sass-cache/
 node_modules/
 public/
+.env
+*.swp
