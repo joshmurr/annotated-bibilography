@@ -40,6 +40,14 @@ app.post('/new', (req, res) => {
     })
 })
 
+app.get('/delete', (req, res) => {
+  const id = req.query.id
+  knex('papers')
+    .where({ id: id })
+    .del()
+    .then(() => res.redirect(303, '/'))
+})
+
 app.use(function (req, res, next) {
   res.status(404)
   res.render('404')
