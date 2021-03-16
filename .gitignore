@@ -1,0 +1,7 @@
+.eslintrc.js
+.prettierrc
+dev.sqlite3
+package-lock.json
+.sass-cache/
+node_modules/
+public/

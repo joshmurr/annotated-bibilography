@@ -1,0 +1,31 @@
+<h1>HOME</h1>
+
+<form action="/new" method="POST">
+  <label for="f_paper_id">Paper ID:</label>
+  <input type="text" id="f_paper_id" name="paper_id">
+  <label for="f_title">Title</label>
+  <input type="text" id="f_title" name="title">
+  <label for="f_summary">Summary</label>
+  <input type="text" id="f_summary" name="summary">
+  <label for="f_url">URL</label>
+  <input type="text" id="f_url" name="url">
+  <label for="f_code">Code</label>
+  <input type="text" id="f_code" name="code">
+  <input type="submit" value="Submit">
+</form>
+
+<div id="container">
+{{#each papers}}
+<div class="entry">
+  <ul class="details">
+    <li><a href="{{this.url}}">{{this.paper_id}}</a></li>
+    <li><a href="{{this.code}}">Code</a></li>
+    <li>{{formatDate this.created_at}}</li>
+  </ul>
+  <ul class="paper">
+    <li class="title">{{this.title}}</li>
+    <li class="summary">{{this.summary}}</li>
+  </ul>
+</div>
+{{/each}}
+</div>
