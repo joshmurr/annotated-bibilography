@@ -32,18 +32,13 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
+    client: 'pg',
+    connection: process.env.ELEPHANT_URL,
     migrations: {
-      tableName: 'knex_migrations',
+      directory: __dirname + '/knex/migrations',
+    },
+    seeds: {
+      directory: __dirname + '/knex/seeds',
     },
   },
 }
