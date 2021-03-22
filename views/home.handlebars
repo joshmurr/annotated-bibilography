@@ -9,8 +9,7 @@
     <input type="text" id="f_title" name="title">
 
     <label for="f_summary">Summary</label>
-    <textarea id="f_summary" name="summary" rows="10" cols="50">
-    </textarea>
+    <textarea id="f_summary" name="summary" rows="10" cols="50"></textarea>
 
     <label for="f_url">URL</label>
     <input type="text" id="f_url" name="url">
@@ -26,6 +25,7 @@
       <li><a href="{{this.code}}">Code</a></li>
       <li>{{formatDate this.created_at}}</li>
       <li><a href="/delete?id={{this.id}}" onclick="return areYouSure('{{this.title}}')">Delete</a></li>
+      <li><a href="/edit?id={{this.id}}">Edit</a></li>
     </ul>
     <ul class="paper">
       <li class="title">{{this.title}}</li>

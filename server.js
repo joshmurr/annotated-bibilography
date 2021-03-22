@@ -35,9 +35,10 @@ app.get('/', (req, res) => {
 app.post('/new', (req, res) => {
   knex('papers')
     .insert({ ...req.body })
-    .then((r) => {
+    .then(() => {
       res.redirect(303, '/')
     })
+    .catch((err) => console.log(err))
 })
 
 app.get('/delete', (req, res) => {
@@ -46,6 +47,27 @@ app.get('/delete', (req, res) => {
     .where({ id: id })
     .del()
     .then(() => res.redirect(303, '/'))
+})
+
+app.get('/edit', (req, res) => {
+  const id = req.query.id
+  knex('papers')
+    .where({ id: id })
+    .then((paper) => {
+      console.log(paper[0])
+      res.render('edit', { paper: paper[0] })
+    })
+})
+
+app.post('/edit', (req, res) => {
+  const { id, ...rest } = req.body
+  knex('papers')
+    .where({ id: id })
+    .update(rest)
+    .then(() => {
+      res.redirect(303, '/')
+    })
+    .catch((err) => console.log(err))
 })
 
 app.use(function (req, res, next) {
