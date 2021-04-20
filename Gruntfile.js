@@ -1,3 +1,5 @@
+const sass = require('node-sass')
+
 module.exports = (grunt) => {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -13,13 +15,11 @@ module.exports = (grunt) => {
       },
     },
     sass: {
+      options: {
+        implementation: sass,
+        sourcemap: false,
+      },
       dist: {
-        options: {
-          sourcemap: false,
-          compress: false,
-          yuicompress: false,
-          style: 'expanded',
-        },
         files: {
           './public/css/style.css': './src/sass/style.scss',
         },
@@ -48,8 +48,8 @@ module.exports = (grunt) => {
   })
 
   grunt.loadNpmTasks('grunt-env')
-  grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-nodemon')
+  grunt.loadNpmTasks('grunt-sass')
   grunt.loadNpmTasks('grunt-concurrent')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.registerTask('default', ['env:prod', 'sass'])
