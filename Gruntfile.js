@@ -52,7 +52,7 @@ module.exports = (grunt) => {
   grunt.loadNpmTasks('grunt-nodemon')
   grunt.loadNpmTasks('grunt-concurrent')
   grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.registerTask('default', ['sass', 'concurrent:target'])
+  grunt.registerTask('default', ['env:prod', 'sass'])
   grunt.registerTask('dev', ['env:dev', 'sass', 'concurrent:target'])
   grunt.registerTask('stage', ['env:stage', 'sass', 'concurrent:target'])
   grunt.registerTask('prod', ['env:prod', 'sass', 'concurrent:target'])
