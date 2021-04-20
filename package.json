@@ -5,6 +5,7 @@
   "scripts": {
     "knex": "knex",
     "dev": "nodemon server.js",
+    "prod": "NODE_ENV=production node server.js",
     "migrate:staging": "knex migrate:latest --env staging"
   },
   "keywords": [],
